@@ -190,13 +190,13 @@ function Body2() {
                 <br/>
                 </div>
                 {
-                    (first != -10000 && sec != -10000 && thir != -10000 && four != -10000 && five != -10000 && six != -10000) &&
+                    (first != -10000 && sec != -10000 && thir != -10000 && four != -10000 && five != -10000) &&
                     (
                         <Button type="primary" style={{width: "200px", marginLeft: "170px"}} onClick={ () => {postUsers();} }>predict DFS-score</Button>
                     )
                 }
                  {
-                    (first == -10000 || sec == -10000 || thir == -10000 || four == -10000 || five == -10000 || six == -10000) &&
+                    (first == -10000 || sec == -10000 || thir == -10000 || four == -10000 || five == -10000) &&
                     (
                         <Button type="primary" style={{width: "200px", marginLeft: "170px"} } disabled>Please enter the value</Button>
                     )
