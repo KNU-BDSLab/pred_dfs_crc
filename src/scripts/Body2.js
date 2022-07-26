@@ -205,8 +205,8 @@ function Body2() {
 
                 {
                     (users.length != 0) &&
-                    (link != "https://ogyworld.github.io/15to6/#/") &&
-                    (link != "https://ogyworld.github.io/15to6/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
                     (<Typography style= {{width: "530px", fontSize: "20px"}}>
                         <pre><b>Predicted DFS-Score: </b>{users[users.length-1].result}</pre>
                     </Typography>)
@@ -230,8 +230,8 @@ function Body2() {
                     <br/>
                     {
                     (users.length != 0) &&
-                    (link != "https://ogyworld.github.io/15to6/#/") &&
-                    (link != "https://ogyworld.github.io/15to6/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
                     (users[users.length-1].result >= 0.21729) &&
                     (<Typography style= {{width: "530px", fontSize: "20px"}}>
                     <pre>your DFS-score belongs to High in Yonsei DFS</pre>
@@ -241,8 +241,8 @@ function Body2() {
 
                 {
                     (users.length != 0) &&
-                    (link != "https://ogyworld.github.io/15to6/#/") &&
-                    (link != "https://ogyworld.github.io/15to6/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
                     (users[users.length-1].result < 0.21729) &&
                     (<Typography style= {{width: "530px", fontSize: "20px"}}>
                     <pre>your DFS-score belongs to Low in Yonsei DFS</pre>
