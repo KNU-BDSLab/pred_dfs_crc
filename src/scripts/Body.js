@@ -227,8 +227,8 @@ function Body() {
                 <br/><br/>
                 {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/") &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
                     (<Typography style= {{width: "530px", fontSize: "15px"}}>
                         <pre><b>Predicted DFS-Score: </b>{users[users.length-1].result}</pre>
                     </Typography>)
@@ -252,8 +252,8 @@ function Body() {
                     <br/>
                     {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/") &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
                     (users[users.length-1].result >= 0.21729) &&
                     (<>
                         <Alert message={<>
@@ -268,8 +268,8 @@ function Body() {
 
                 {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/") &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
                     (users[users.length-1].result < 0.21729) &&
                     (<>
                     <Alert message={<>

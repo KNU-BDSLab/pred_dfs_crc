@@ -222,7 +222,7 @@ function Body2() {
 
                 {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/model3") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/model3") &&
                     (<Typography style= {{width: "530px", fontSize: "15px"}}>
                         <pre><b>Predicted DFS-Score: </b>{users[users.length-1].result}</pre>
                     </Typography>)
@@ -246,7 +246,7 @@ function Body2() {
                     <br/>
                     {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/model3") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/model3") &&
                     (users[users.length-1].result >= 0.21729) &&
                     (<>
                         <Alert message={<>
@@ -261,7 +261,7 @@ function Body2() {
 
                 {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/model3") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/model3") &&
                     (users[users.length-1].result < 0.21729) &&
                     (<>
                         <Alert message={<>
