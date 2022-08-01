@@ -17,15 +17,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<HashRouter>
     	<Routes>
-          <Route path="/" exact={true} element={<Home />} />
-          <Route path="/model4" exact={true} element={<Home2 />} />
+          <Route path="/model3" exact={true} element={<Home />} />
+          <Route path="/" exact={true} element={<Home2 />} />
           {/** 
           <Route path="/sa1" exact={true} element={<SA1 />} />
           <Route path="/sa2" exact={true} element={<SA2 />} />
             */}
 
-          <Route path="/result" exact={true} element={<Home />} />
-          <Route path="/model4/result" exact={true} element={<Home2 />} />
+          <Route path="/model3/result" exact={true} element={<Home />} />
+          <Route path="/result" exact={true} element={<Home2 />} />
           {/**
           <Route path="/sa1/result" exact={true} element={<SA1 />} />
           <Route path="/sa2/result" exact={true} element={<SA2 />} />

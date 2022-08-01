@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component } from 'react'
 import axios from "axios"
-import { Input, Button, Tabs, message, Typography, Spin} from 'antd'
+import { Input, Button, Tabs, message, Typography, Spin, Alert} from 'antd'
 import { EditOutlined, ProfileOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import "../css/body.css"
@@ -142,48 +142,65 @@ function Body2() {
         setLoading(false);
     };
     return(
-        <div>
-            <div className='body'>
-            <br/><br/><br/>
+        <div style={{fontFamily: "arial"}}>
+            <div className='body2'>
+            <br/>
                 
-                <Link to="/"><b style={{fontSize: "20px", marginRight: "30px", color: "#375CE7"}}>Model 3 : Prediction of DFS - Score</b></Link>
+            <Alert
+                message={<>
+                <p>If you have serum neutrophil, platelet, monocyte, lymphocyte, CRP, and albumin, please type these six values in the below form. Then, we can estimate the DFS-score-4 and return it to you.</p>
+    
+                <p>If you have serum neutrophil, platelet, monocyte, lymphocyte, and CRP, please type these five values in the below form. Then, we can estimate the DFS-score-3 and return it to you.</p>
+    
+                <p>Briefly, serum inflammation-related markers such as monocyte, lymphocyte, neutrophil, albumin, platelet, and C-reactive protein (CRP) were used to make a compositions.</p>
+    
+                <p>Model 4 is based on the 15 compositions derived from six inflammatory markers and Model 3 is based on the 10 compositions derived from five inflammatory markers.</p>
+    
+                <p>The detailed information about how to define the compositions from the inflammatory markers has been described in the Material and Methods section of the manuscript(article), and Supplementary Table 1.</p>
+                </>}
+                type="warning"
+                closable
+                showIcon
+                style={{width: "800px", marginLeft: "-150px", marginTop: "0px"}}
+                />
+                <br/><br/>
+                <Link to="/"><b style={{fontSize: "18px", color: "#6D6D6D",  marginRight: "30px"}}>Model 4 (DFS-score-4)</b></Link>
                 {/** 
                     <Link to="/sa1"><b style={{fontSize: "15px", color: "black", marginLeft: "20px"}}> Survival analysis - 1</b></Link>}
                 {<Link to="/sa2"><b style={{fontSize: "15px", color: "black", marginLeft: "20px"}}> Survival analysis - 2</b></Link>*/}
-                <Link to="/model4"><b style={{fontSize: "20px", color: "#6D6D6D"}}>Model 4 : Prediction of DFS - Score</b></Link>
+                <Link to="/model3"><b style={{fontSize: "18px"}}>Model 3 (DFS-score-3)</b></Link>
                 <br/>
-                <Tabs defaultActiveKey="1" onChange={onChange}>
+                <Tabs defaultActiveKey="1" onChange={onChange} style={{ marginLeft: "0px", width: "600px"}}>
                     <TabPane tab="Prediction of DFS - Score" key="1">
-                    <b style={{fontSize: "30px", marginTop: "20px", position:"absolute", color: "#2E4189"}}>
+                    <b style={{fontSize: "20px", marginTop: "0px", position:"absolute", color: "#38B1EA"}}>
                 Model 3 : Prediction of DFS - Score
                 </b>
                 <br/>
-                <div style = {{backgroundColor: '#F1B68C', width: '700px', height: '5px', marginTop: "50px", marginLeft: "0px"}}></div>
-                <br/>
+                <div style = {{backgroundColor: '#E6F7FF', width: '600px', height: '2px', marginTop: "20px", marginLeft: "0px"}}></div>
 
-                <b style={{fontSize: "25px", marginTop: "20px", position:"absolute", color: "#493F38"}}>
+                <p style={{fontSize: "17px", marginTop: "10px", position:"absolute", color: "#D4910E"}}>
                 <EditOutlined/> Please enter the value in the blank
-                </b>
+                </p>
                 <br/>
-                <div style={{paddingLeft: "40px", paddingTop: "80px"}}>
+                <div style={{paddingLeft: "40px", paddingTop: "50px"}}>
 
-                <b style={{fontSize: "20px", paddingRight: "50px"}}>Neutrophil (µl)</b>
+                <b style={{fontSize: "15px", paddingRight: "50px"}}>Neutrophil (µl)</b>
                 <Input placeholder="ex) 3520"  style={{width: "200px", height: "50px"}} onChange={onChangeFir}/>
                 <br/><br/>
 
-                <b style={{fontSize: "20px", paddingRight: "40px"}}>Lymphocyte (µl)</b>
+                <b style={{fontSize: "15px", paddingRight: "40px"}}>Lymphocyte (µl)</b>
                 <Input placeholder="ex) 1690"  style={{width: "200px", height: "50px"}} onChange={onChangeSec}/>
                 <br/><br/>
 
-                <b style={{fontSize: "20px", paddingRight: "83px"}}>Platelet (µl)</b>
+                <b style={{fontSize: "15px", paddingRight: "70px"}}>Platelet (µl)</b>
                 <Input placeholder="ex) 212000"  style={{width: "200px", height: "50px"}} onChange={onChangeThir}/>
                 <br/><br/>
 
-                <b style={{fontSize: "20px", paddingRight: "60px"}}>Monocyte (µl)</b>
+                <b style={{fontSize: "15px", paddingRight: "55px"}}>Monocyte (µl)</b>
                 <Input placeholder="ex) 240"  style={{width: "200px", height: "50px"}} onChange={onChangeFour}/>
                 <br/><br/>
 
-                <b style={{fontSize: "20px", paddingRight: "74px"}}>CRP (mg/dL)</b>
+                <b style={{fontSize: "15px", paddingRight: "58px"}}>CRP (mg/dL)</b>
                 <Input placeholder="ex) 0.04"  style={{width: "200px", height: "50px"}} onChange={onChangeFive}/>
                 <br/><br/>
 
@@ -192,22 +209,21 @@ function Body2() {
                 {
                     (first != -10000 && sec != -10000 && thir != -10000 && four != -10000 && five != -10000) &&
                     (
-                        <Button type="primary" style={{width: "200px", marginLeft: "170px"}} onClick={ () => {postUsers();} }>predict DFS-score</Button>
+                        <Button type="primary" style={{width: "200px", marginLeft: "170px"}} onClick={ () => {postUsers();} }>submit</Button>
                     )
                 }
                  {
                     (first == -10000 || sec == -10000 || thir == -10000 || four == -10000 || five == -10000) &&
                     (
-                        <Button type="primary" style={{width: "200px", marginLeft: "170px"} } disabled>Please enter the value</Button>
+                        <Button type="primary" style={{width: "200px", marginLeft: "170px"} } disabled>submit</Button>
                     )
                 }
                 <br/><br/>
 
                 {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
-                    (<Typography style= {{width: "530px", fontSize: "20px"}}>
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/model3") &&
+                    (<Typography style= {{width: "530px", fontSize: "15px"}}>
                         <pre><b>Predicted DFS-Score: </b>{users[users.length-1].result}</pre>
                     </Typography>)
                 }
@@ -222,34 +238,43 @@ function Body2() {
                 }
                     </TabPane>
                     <TabPane tab="Survival Analysis" key="2">
-                    <b style={{fontSize: "30px", marginTop: "20px", position:"absolute", color: "#2E4189"}}>
+                    <b style={{fontSize: "20px", marginTop: "0px", position:"absolute", color: "#38B1EA"}}>
                      Model 3 : Survival Analysis
                     </b>
                     <br/>
-                    <div style = {{backgroundColor: '#F1B68C', width: '700px', height: '5px', marginTop: "50px", marginLeft: "0px"}}></div>
+                    <div style = {{backgroundColor: '#E6F7FF', width: '600px', height: '2px', marginTop: "20px", marginLeft: "0px"}}></div>
                     <br/>
                     {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/model3") &&
                     (users[users.length-1].result >= 0.21729) &&
-                    (<Typography style= {{width: "530px", fontSize: "20px"}}>
-                    <pre>your DFS-score belongs to High in Yonsei DFS</pre>
-                    <pre>your DFS-score belongs to High in Ulsan DFS</pre>
-                    </Typography>)
+                    (<>
+                        <Alert message={<>
+                        The predicted DFS-score-3 is close to the {<b>high group</b>} which is defined by our study based on the patients data from Gangnam Severance Hospital.
+                        </>} type="success" />
+                        <br/>
+                        <Alert message={<>
+                        The predicted DFS-score-3 is close to the {<b>high group</b>} which is defined by our study based on the patients data from Ulsan University Hospital.
+                        </>} type="success" />
+                        </>)
                 }
 
                 {
                     (users.length != 0) &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/#/") &&
-                    (link != "https://knu-bdslab.github.io/pred_dfs_crc/") &&
+                    (link != "https://knu-bdslab.github.io/pred_dfs_crc#/model3") &&
                     (users[users.length-1].result < 0.21729) &&
-                    (<Typography style= {{width: "530px", fontSize: "20px"}}>
-                    <pre>your DFS-score belongs to Low in Yonsei DFS</pre>
-                    <pre>your DFS-score belongs to Low in Ulsan DFS</pre>
-                    </Typography>)
+                    (<>
+                        <Alert message={<>
+                        The predicted DFS-score-3 is close to the {<b>low group</b>} which is defined by our study based on the patients data from Gangnam Severance Hospital.
+                        </>} type="success" />
+                        <br/>
+                        <Alert message={<>
+                        The predicted DFS-score-3 is close to the {<b>low group</b>} which is defined by our study based on the patients data from Ulsan University Hospital.
+                        </>} type="success" />
+                        </>)
                 }
 
+                    {/** 
                     <div style = {{backgroundColor: '#DADADA', width: '700px', height: '2px', marginTop: "0px", marginLeft: "0px"}}></div>
 
                         <br/><br/>
@@ -258,6 +283,7 @@ function Body2() {
                         <div style = {{backgroundColor: '#DADADA', width: '700px', height: '2px', marginTop: "0px", marginLeft: "0px"}}></div>
                         <br/><br/>
                         <img style={{height: "500px"}} src={ulsan}/>
+            */}
                     </TabPane>
                 </Tabs>
                 <br/><br/>

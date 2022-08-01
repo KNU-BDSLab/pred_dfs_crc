@@ -2,26 +2,32 @@
 
 @media only screen and (min-width: 2100px) {
     .body {
-        padding-left: 34%;
+        padding-left: 6%;
     }
   }
 
   @media only screen and (max-width: 2100px) {
     .body {
-        padding-left: 28%;
+        padding-left: 3%;
     }
   }
 
   @media only screen and (min-width: 2100px) {
     .body2 {
-        padding-left: 30%;
+        padding-left: 38%;
     }
   }
 
   @media only screen and (max-width: 2100px) {
     .body2 {
-        padding-left: 34%;
+        padding-left: 30%;
     }
+  }
+  
+
+  @font-face {
+    font-family: "arial";
+    src: url("../fonts/arial.ttf");
   }
 
   .steps-content {
